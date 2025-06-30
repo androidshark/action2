@@ -10,7 +10,7 @@ jobs:
         run: echo "Hola Mundo linux"
 
   second_jobs:
-    if: ${{github.ref == 'refs/heads/master'}}
+    if: ${{github.ref == 'refs/heads/main'}}
     needs: first_jobs
     runs-on: windows-latest
     steps:
