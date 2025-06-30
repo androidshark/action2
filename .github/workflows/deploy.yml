@@ -15,4 +15,4 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: hola mundo windows
-        run: echo "hola mundo windows"
+        run: echo "hola ${{github.actor}} desde windows"
