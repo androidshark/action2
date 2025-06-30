@@ -4,6 +4,7 @@ on: push
 
 jobs:
   first_jobs:
+    name: Primer job
     runs-on: ubuntu-latest
 
     env:
