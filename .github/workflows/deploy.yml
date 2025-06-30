@@ -7,4 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: hola mundo
-        run: echo "Hola Mundo"
+        run: echo "Hola Mundo linux"
+
+  second_jobs:
+    runs-on: windows-latest
+    steps:
+      - name: hola mundo windows
+        run: echo "hola mundo windows"      
