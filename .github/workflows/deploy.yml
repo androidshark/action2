@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: hola mundo
-        run: echo "Hola Mundo linux $codigoFacilito"
+        run: echo "Hola Mundo linux $NAME"
 
   second_jobs:
     if: ${{github.ref == 'refs/heads/main'}}
