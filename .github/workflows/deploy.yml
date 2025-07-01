@@ -11,8 +11,11 @@ jobs:
      NAME: codigoFacilito
 
     steps:
-      - name: hola mundo
-        run: echo "Hola Mundo linux $NAME"
+      - name: Working Dir
+        run: ls -al
+
+   #   - name: Action
+   #     uses:    
 
   second_jobs:
     if: ${{github.ref == 'refs/heads/main'}}
