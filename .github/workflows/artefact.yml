@@ -1,0 +1,16 @@
+name: Artefact
+
+on: push
+
+jobs:
+  first_jobs:
+    name: Primer job
+    runs-on: ubuntu-latest
+
+    # variable que pasa a otro job
+    outputs:
+      salida: pepe
+
+    steps:
+      - name: Working Dir
+        run: ls -al
