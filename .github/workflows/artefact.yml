@@ -7,10 +7,6 @@ jobs:
     name: Primer job
     runs-on: ubuntu-latest
 
-    # variable que pasa a otro job
-    outputs:
-      salida: pepe
-
     steps:
       - name: Generar Archivo
         run: |
@@ -21,3 +17,18 @@ jobs:
         with:
             name: test-log
             path: test.log
+
+ second_jobs:
+        name: segundo job
+        needs: first_jobs
+        runs-on: ubuntu-latest
+    
+        steps:
+            - name: descargar artefacto
+              uses: actions/download-artifact@v4
+              with:
+                name: test-log
+
+            - name: mostrar contenido
+              run: cat test.log    
+           
