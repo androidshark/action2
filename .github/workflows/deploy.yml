@@ -9,7 +9,7 @@ jobs:
 
     # variable que pasa a otro job
     outputs:
-      salida: ${{steps.step_1.outputs.my_variable}}
+      salida: pepe
     
     env:
      NAME: codigoFacilito
