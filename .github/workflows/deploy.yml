@@ -31,15 +31,15 @@ jobs:
   second_jobs:
     if: ${{github.ref == 'refs/heads/main'}}
     needs: first_jobs
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     # se lee la variable del otro job
     env:
       salida: ${{needs.first_jobs.outputs.salida}}
 
     steps:
-      - name: hola mundo windows
-        run: echo "hola ${{github.actor}} desde windows"
+      - name: hola mundo linux 2
+        run: echo "hola ${{github.actor}} desde linux2"
 
      # se muestra la variable del primer job
       - name: variable de salida
