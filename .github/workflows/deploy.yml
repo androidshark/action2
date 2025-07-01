@@ -14,13 +14,16 @@ jobs:
       - name: Working Dir
         run: ls -al
 
-   #   - name: Action
-   #     uses:    
+      - name: Action
+        uses: actions/checkout@v4   
 
-  second_jobs:
-    if: ${{github.ref == 'refs/heads/main'}}
-    needs: first_jobs
-    runs-on: windows-latest
-    steps:
-      - name: hola mundo windows
-        run: echo "hola ${{github.actor}} desde windows"
+      - name: Working Dir after action
+        run: ls -al  
+
+ # second_jobs:
+ #   if: ${{github.ref == 'refs/heads/main'}}
+ #   needs: first_jobs
+ #   runs-on: windows-latest
+ #   steps:
+ #     - name: hola mundo windows
+ #       run: echo "hola ${{github.actor}} desde windows"
