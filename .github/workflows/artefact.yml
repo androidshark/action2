@@ -18,7 +18,7 @@ jobs:
             name: test-log
             path: test.log
 
- second_jobs:
+  second_jobs:
         name: segundo job
         needs: first_jobs
         runs-on: ubuntu-latest
