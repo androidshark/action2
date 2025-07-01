@@ -1,4 +1,4 @@
-name: Deply to Server
+name: Deploy to Server
 
 on: push
 
@@ -9,7 +9,7 @@ jobs:
 
     # variable que pasa a otro job
     outputs:
-      salida: hola desde el jobs uno
+      salida: ${{steps.step_1.outputs.my_variable}}
     
     env:
      NAME: codigoFacilito
@@ -43,4 +43,4 @@ jobs:
 
      # se muestra la variable del primer job
       - name: variable de salida
-        run: echo "el valor de la variable del primer job es, %salida%"  
+        run: echo "el valor de la variable del primer job es, $salida"  
