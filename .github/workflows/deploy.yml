@@ -14,11 +14,8 @@ jobs:
       - name: Working Dir
         run: ls -al
 
-      - name: Action
-        uses: actions/checkout@v4   
-
-      - name: Working Dir after action
-        run: ls -al  
+      - name: variable entre jobs
+        run: echo $GITHUB_OUTPUT
 
  # second_jobs:
  #   if: ${{github.ref == 'refs/heads/main'}}
