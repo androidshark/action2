@@ -14,8 +14,15 @@ jobs:
       - name: Working Dir
         run: ls -al
 
+      - name: concatenar variable
+        id: step_1
+        run: echo "my_variable=hola mundo" >> $GITHUB_OUTPUT
+
       - name: variable entre jobs
         run: echo $GITHUB_OUTPUT
+
+      - name: obtener mensaje
+        run: echo  "${{steps.step_1.outputs.my_variable}}"
 
  # second_jobs:
  #   if: ${{github.ref == 'refs/heads/main'}}
