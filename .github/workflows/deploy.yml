@@ -4,6 +4,7 @@ on: push
 
 jobs:
   first_jobs:
+    if: ${{github.ref == 'refs/heads/master'}}
     name: Primer job
     runs-on: ubuntu-latest
 
@@ -29,7 +30,7 @@ jobs:
         run: echo  "${{steps.step_1.outputs.my_variable}}"
 
   second_jobs:
-    if: ${{github.ref == 'refs/heads/main'}}
+    if: ${{github.ref == 'refs/heads/master'}}
     needs: first_jobs
     runs-on: ubuntu-latest
 
