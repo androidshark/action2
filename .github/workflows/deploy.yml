@@ -7,6 +7,10 @@ jobs:
     name: Primer job
     runs-on: ubuntu-latest
 
+    # variable que pasa a otro job
+    outputs:
+      salida: hola desde el jobs uno
+    
     env:
      NAME: codigoFacilito
 
@@ -18,16 +22,25 @@ jobs:
         id: step_1
         run: echo "my_variable=hola mundo" >> $GITHUB_OUTPUT
 
-      - name: variable entre jobs
+      - name: variable entre steps
         run: echo $GITHUB_OUTPUT
 
       - name: obtener mensaje
         run: echo  "${{steps.step_1.outputs.my_variable}}"
 
- # second_jobs:
- #   if: ${{github.ref == 'refs/heads/main'}}
- #   needs: first_jobs
- #   runs-on: windows-latest
- #   steps:
- #     - name: hola mundo windows
- #       run: echo "hola ${{github.actor}} desde windows"
+  second_jobs:
+    if: ${{github.ref == 'refs/heads/main'}}
+    needs: first_jobs
+    runs-on: windows-latest
+
+    # se lee la variable del otro job
+    env:
+      salida: ${{needs.first_jobs.outputs.salida}}
+
+    steps:
+      - name: hola mundo windows
+        run: echo "hola ${{github.actor}} desde windows"
+
+     # se muestra la variable del primer job
+      - name: variable de salida
+        run: echo "el valor de la variable del primer job es, $salida"  
